@@ -98,8 +98,7 @@ Chạy `ChunkingStrategyComparator().compare()` trên tài liệu `data/data.md`
 | Tài liệu | Strategy | Chunk Count | Avg Length | Retrieval Quality? |
 |-----------|----------|-------------|------------|--------------------|
 | data.md | best baseline: FixedSizeChunker | 246 | 199.81 | Medium |
-| data.md | **của tôi: RecursiveChunker** | 209 | 173.89 | High |
-
+| data.md | **của tôi: RecursiveChunker** | 228 | 185.42 | High |
 
 ### So Sánh Với Thành Viên Khác
 
@@ -235,7 +234,6 @@ Chạy 5 benchmark queries của nhóm trên implementation cá nhân của bạ
 | 3 |Quy tắc đổi giờ đồng hồ sang giờ hàng Chi trong Tử Vi là gì? |Một ngày có 24 giờ đồng hồ và cứ *hai giờ đồng hồ tương ứng với một giờ hàng Chi*. Ví dụ: giờ Tý bắt đầu từ 23 giờ đến 1 giờ sáng, giờ Sửu từ 1 giờ đến 3 giờ sáng, và tiếp tục như vậy cho đến hết 12 ch |
 | 4 |Chùm sao thuộc Tử Vi tinh hệ bao gồm những sao nào? |Chùm sao này gồm có 5 sao: *Tử Vi, Liêm Trinh, Thiên Đồng, Vũ Khúc và Thiên Cơ*. Việc an các sao này dựa trên Cục và ngày sinh của mỗi ngườ |
 | 5 |Một lá số Tử Vi được chia làm bao nhiêu ô và tên gọi của các ô này dựa trên quy tắc nào? |Lá số được chia làm *12 ô*, mỗi ô gọi là một cung. Tên riêng của mỗi cung được gọi theo *Thập Nhị Địa Chi*, bao gồm: Tý, Sửu, Dần, Mão, Thìn, Tỵ, Ngọ, Mùi, Thân, Dậu, Tuất, Hợi. |
-### Kết Quả Của Tôi
 
 ### Kết Quả Của Tôi
 
