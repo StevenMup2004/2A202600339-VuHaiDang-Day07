@@ -64,10 +64,10 @@
 
 | Trường metadata | Kiểu | Ví dụ giá trị | Tại sao hữu ích cho retrieval? |
 |----------------|------|---------------|-------------------------------|
-| source|String | | Xác định độ tin cậy của nguồn tin. Khi có mâu thuẫn kiến thức, hệ thống có thể ưu tiên dữ liệu từ nguồn chính thống (sách gốc) hơn là các bài blog.|
-| category|Enum | |Cho phép thu hẹp phạm vi tìm kiếm. Nếu người dùng hỏi về ""Sao Tử Vi"", hệ thống chỉ tìm trong vùng dữ liệu đã tag là chinh_tinh, tránh nhiễu từ các đoạn văn nói về các sao khác. |
-| update|DateTime | |Giúp hệ thống thực hiện Recency Bias. Trong các tài liệu nghiên cứu mới về tử vi hiện đại, thông tin cập nhật gần nhất thường có giá trị hiệu chỉnh cao hơn các bản dịch cũ. |
-| access|Integer | |Quản lý quyền truy cập dữ liệu (Security). Đảm bảo các ghi chú cá nhân hoặc dữ liệu khách hàng nhạy cảm không bị lộ ra khi người dùng phổ thông truy vấn hệ thống. |
+| source|String | "tuvi_sach_goc.pdf", "blog_tuvi_2023"  | Xác định độ tin cậy của nguồn tin. Khi có mâu thuẫn kiến thức, hệ thống có thể ưu tiên dữ liệu từ nguồn chính thống (sách gốc) hơn là các bài blog.|
+| category|Enum |"chinh_tinh", "phu_tinh", "ngu_hanh" |Cho phép thu hẹp phạm vi tìm kiếm. Nếu người dùng hỏi về ""Sao Tử Vi"", hệ thống chỉ tìm trong vùng dữ liệu đã tag là chinh_tinh, tránh nhiễu từ các đoạn văn nói về các sao khác. |
+| update|DateTime |"2024-03-15", "2022-11-01" |Giúp hệ thống thực hiện Recency Bias. Trong các tài liệu nghiên cứu mới về tử vi hiện đại, thông tin cập nhật gần nhất thường có giá trị hiệu chỉnh cao hơn các bản dịch cũ. |
+| access|Integer |0 (public), 1 (internal), 2 (private) |Quản lý quyền truy cập dữ liệu (Security). Đảm bảo các ghi chú cá nhân hoặc dữ liệu khách hàng nhạy cảm không bị lộ ra khi người dùng phổ thông truy vấn hệ thống. |
 
 ---
 
