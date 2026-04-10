@@ -52,10 +52,31 @@ class OpenAIEmbedder:
         self.model_name = model_name
         self._backend_name = model_name
         self.client = OpenAI()
+        # Initial safety cap; if still too long, __call__ will auto-shrink and retry.
+        self._max_chars = 20000
 
     def __call__(self, text: str) -> list[float]:
-        response = self.client.embeddings.create(model=self.model_name, input=text)
-        return [float(value) for value in response.data[0].embedding]
+        safe_text = text if len(text) <= self._max_chars else text[: self._max_chars]
+
+        for _ in range(8):
+            try:
+                response = self.client.embeddings.create(model=self.model_name, input=safe_text)
+                return [float(value) for value in response.data[0].embedding]
+            except Exception as exc:
+                message = str(exc).lower()
+                is_context_error = (
+                    "maximum context length" in message
+                    or "invalid 'input'" in message
+                    or "too many tokens" in message
+                )
+                if not is_context_error or len(safe_text) <= 1000:
+                    raise
+
+                # Reduce aggressively to guarantee convergence without tokenizer libs.
+                safe_text = safe_text[: max(1000, len(safe_text) // 2)]
+
+        # If the loop exits unexpectedly, surface a clear error.
+        raise RuntimeError("Failed to generate embedding after adaptive truncation retries.")
 
 
 _mock_embed = MockEmbedder()
